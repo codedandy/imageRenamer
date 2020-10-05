@@ -1,6 +1,3 @@
-import os
-import os.path
-import shutil
 import time
 
 import verifier
@@ -65,23 +62,29 @@ time.sleep(1)
 # create backups of source file and contents of the image folder
 print("• Creating backups.")
 fileWork.createBackups(sourceFile, sourceFolder)
+time.sleep(1)
 
 # input desired image prefix
 prefixString = verifier.setImgPrefix()
+time.sleep(1)
 
 # build list of tuples with the original reference name (uniqueReferences) 
 # and the new sequential name, 
 # if the reference is in the otherListComp then skip that ref
 
 renamedImageSets = fileWork.assembleNewNames(prefixString, filteredImages)
+time.sleep(1)
 
 print("• Renaming images in source document.")
 updatedFile = fileWork.updateSourceFile(workingFile, renamedImageSets)
+time.sleep(1)
 
 print("• Saving changes to source document.")
 fileWork.saveSourceDocument(sourceFile, updatedFile)
+time.sleep(1)
 
 print("• Renaming image files.")
 fileWork.renameImageFiles(sourceFolder, renamedImageSets)
+time.sleep(1)
 
 print("-= Quae Quod Phantasticum =-")
